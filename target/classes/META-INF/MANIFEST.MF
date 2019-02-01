@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: client-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: nickt
+Implementation-Vendor-Id: com.armadillo.api
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/client-service
+Created-By: Maven Integration for Eclipse
+
