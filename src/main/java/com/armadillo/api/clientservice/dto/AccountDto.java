@@ -17,8 +17,7 @@ import javax.validation.constraints.Size;
  */
 public class AccountDto {
 
-	
-	
+		
 	
 
 	@JsonProperty("account")
@@ -126,6 +125,9 @@ public class AccountDto {
 	@JsonProperty("action_type")
 	private String actionType;
 	
+	@JsonProperty("account_type")
+	private String accountType;
+	
 	
     
     
@@ -161,6 +163,7 @@ public class AccountDto {
 			BigDecimal internationalDiscountpercent,
 			BigDecimal companieshouseDiscountpercent,
 			String invoiceMethod,
+			String accountType,
 			String actionType
 			) {
 		this.account=account;		
@@ -193,7 +196,8 @@ public class AccountDto {
 		this.goodCustomer=goodCustomer;
 		this.internationalDiscountpercent=internationalDiscountpercent;
 		this.companieshouseDiscountpercent=companieshouseDiscountpercent;
-		this.invoiceMethod=invoiceMethod;	
+		this.invoiceMethod=invoiceMethod;
+		this.accountType=accountType;			
 		this.actionType=actionType;		
 	}
 	public AccountDto(
@@ -227,6 +231,7 @@ public class AccountDto {
 			BigDecimal internationalDiscountpercent,
 			BigDecimal companieshouseDiscountpercent,
 			String invoiceMethod,
+			String accountType,			
 			String actionType
 			) {	
 		this.partner=partner;
@@ -259,6 +264,7 @@ public class AccountDto {
 		this.internationalDiscountpercent=internationalDiscountpercent;
 		this.companieshouseDiscountpercent=companieshouseDiscountpercent;
 		this.invoiceMethod=invoiceMethod;
+		this.accountType=accountType;			
 		this.actionType=actionType;		
 	}
 	protected AccountDto() {
@@ -457,11 +463,17 @@ public class AccountDto {
 	
 	
 	
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+	public void setActionType(String actionType) {
+		this.actionType = actionType;
+	}
 	public String getActionType() {
 		return actionType;
-	}
-	public void setAction(String actionType) {
-		this.actionType = actionType;
 	}
 	
 	
@@ -479,8 +491,10 @@ public class AccountDto {
 				+ invoicePeriod + ", paymentType=" + paymentType + ", vatNumber=" + vatNumber + ", vatExempt="
 				+ vatExempt + ", priceBand=" + priceBand + ", goodCustomer=" + goodCustomer
 				+ ", internationalDiscountpercent=" + internationalDiscountpercent + ", companieshouseDiscountpercent="
-				+ companieshouseDiscountpercent + ", invoiceMethod=" + invoiceMethod + ", actionType=" + actionType + "]";
+				+ companieshouseDiscountpercent + ", invoiceMethod=" + invoiceMethod + ", actionType=" + actionType
+				+ ", accountType=" + accountType + "]";
 	}
+
 
 
 	

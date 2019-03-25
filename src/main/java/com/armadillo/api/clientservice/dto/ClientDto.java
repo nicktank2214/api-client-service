@@ -95,7 +95,9 @@ public class ClientDto {
 	@JsonProperty("action_type")
 	private String actionType;
 	
-	
+	@JsonProperty("client_type")
+	private String clientType;
+
 	
 	
     
@@ -123,6 +125,7 @@ public class ClientDto {
 			Integer chMonthfeedue,
 			String chPaid,
 			String chUser,
+			String clientType,
 			String actionType
 			) {
 		this.client=client;
@@ -148,6 +151,7 @@ public class ClientDto {
 		this.chMonthfeedue=chMonthfeedue;
 		this.chPaid=chPaid;
 		this.chUser=chUser;
+		this.clientType=clientType;			
 		this.actionType=actionType;
 	}
 	public ClientDto(
@@ -173,6 +177,7 @@ public class ClientDto {
 			Integer chMonthfeedue,
 			String chPaid,
 			String chUser,
+			String clientType,
 			String actionType
 			) {	
 		this.password=password;
@@ -197,6 +202,7 @@ public class ClientDto {
 		this.chMonthfeedue=chMonthfeedue;
 		this.chPaid=chPaid;
 		this.chUser=chUser;	
+		this.clientType=clientType;			
 		this.actionType=actionType;	
 	}
 	protected ClientDto() {
@@ -347,13 +353,18 @@ public class ClientDto {
 
 	
 	
+	public String getClientType() {
+		return clientType;
+	}
+	public void setClientType(String clientType) {
+		this.clientType = clientType;
+	}
 	public String getActionType() {
 		return actionType;
 	}
 	public void setActionType(String actionType) {
 		this.actionType = actionType;
 	}
-	
 	
 	
 	
@@ -365,10 +376,13 @@ public class ClientDto {
 				+ country + ", postcode=" + postcode + ", company=" + company + ", telephone=" + telephone + ", fax="
 				+ fax + ", cardholderName=" + cardholderName + ", saveCard=" + saveCard + ", contact=" + contact
 				+ ", chMonthfeedue=" + chMonthfeedue + ", chPaid=" + chPaid + ", chUser=" + chUser + ", actionType="
-				+ actionType + "]";
+				+ actionType + ", clientType=" + clientType + "]";
 	}
 	
 	
+	
+	
+
 
 	
 }

@@ -32,6 +32,9 @@ extends CrudRepository<AccountCode,Integer> {
 	
 	//standard find by accountcode / codetype / codevalue 
 	AccountCode findByAccountAndCodeTypeAndCodeValue(String account, String codeType, String codeValue);
+
+	//standard find by accountcode / codetype 
+	AccountCode findByAccountAndCodeType(String account, String codeType);
 	
 	List<AccountCode> findByAccount(String account);
 

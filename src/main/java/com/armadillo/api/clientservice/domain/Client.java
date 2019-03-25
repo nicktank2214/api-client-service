@@ -98,7 +98,8 @@ public class Client implements Serializable {
 	@Column(name = "ch_user")
 	private String chUser;
 
-
+	@Column(name = "clienttype")
+	private String clientType;
 	
 	
 
@@ -125,7 +126,8 @@ public class Client implements Serializable {
 			String contact,
 			Integer chMonthfeedue,
 			String chPaid,
-			String chUser
+			String chUser,
+			String clientType
 			) {
 		this.password=password;
 		this.account=account;
@@ -149,6 +151,7 @@ public class Client implements Serializable {
 		this.chMonthfeedue=chMonthfeedue;
 		this.chPaid=chPaid;
 		this.chUser=chUser;	
+		this.clientType=clientType;			
 	}
 	public Client(
 			Integer client,			
@@ -173,7 +176,8 @@ public class Client implements Serializable {
 			String contact,
 			Integer chMonthfeedue,
 			String chPaid,
-			String chUser			
+			String chUser,
+			String clientType			
 			) {
 		this.client=client;		
 		this.password=password;
@@ -197,7 +201,8 @@ public class Client implements Serializable {
 		this.contact=contact;
 		this.chMonthfeedue=chMonthfeedue;
 		this.chPaid=chPaid;
-		this.chUser=chUser;		
+		this.chUser=chUser;	
+		this.clientType=clientType;			
 	}
 	
 	
@@ -343,24 +348,21 @@ public class Client implements Serializable {
 		this.chUser = chUser;
 	}
 	
-
 	
-	
-	
-	@Override
-	public String toString() {
-		return "Client [client=" + client + ", password=" + password + ", account=" + account + ", groupId=" + groupId
-				+ ", email=" + email + ", title=" + title + ", forename=" + forename + ", surname=" + surname
-				+ ", addr1=" + addr1 + ", addr2=" + addr2 + ", town=" + town + ", county=" + county + ", country="
-				+ country + ", postcode=" + postcode + ", company=" + company + ", telephone=" + telephone + ", fax="
-				+ fax + ", cardholderName=" + cardholderName + ", saveCard=" + saveCard + ", contact=" + contact
-				+ ", chMonthfeedue=" + chMonthfeedue + ", chPaid=" + chPaid + ", chUser=" + chUser  + "]";
+	public String getClientType() {
+		return clientType;
 	}
+	public void setClientType(String clientType) {
+		this.clientType = clientType;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((account == null) ? 0 : account.hashCode());
+		result = prime * result + ((clientType == null) ? 0 : clientType.hashCode());
 		result = prime * result + ((addr1 == null) ? 0 : addr1.hashCode());
 		result = prime * result + ((addr2 == null) ? 0 : addr2.hashCode());
 		result = prime * result + ((cardholderName == null) ? 0 : cardholderName.hashCode());
@@ -385,6 +387,8 @@ public class Client implements Serializable {
 		result = prime * result + ((town == null) ? 0 : town.hashCode());
 		return result;
 	}
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -398,6 +402,11 @@ public class Client implements Serializable {
 			if (other.account != null)
 				return false;
 		} else if (!account.equals(other.account))
+			return false;
+		if (clientType == null) {
+			if (other.clientType != null)
+				return false;
+		} else if (!clientType.equals(other.clientType))
 			return false;
 		if (addr1 == null) {
 			if (other.addr1 != null)
@@ -514,7 +523,18 @@ public class Client implements Serializable {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Client [client=" + client + ", password=" + password + ", account=" + account + ", groupId=" + groupId
+				+ ", email=" + email + ", title=" + title + ", forename=" + forename + ", surname=" + surname
+				+ ", addr1=" + addr1 + ", addr2=" + addr2 + ", town=" + town + ", county=" + county + ", country="
+				+ country + ", postcode=" + postcode + ", company=" + company + ", telephone=" + telephone + ", fax="
+				+ fax + ", cardholderName=" + cardholderName + ", saveCard=" + saveCard + ", contact=" + contact
+				+ ", chMonthfeedue=" + chMonthfeedue + ", chPaid=" + chPaid + ", chUser=" + chUser + ", clientType="
+				+ clientType + "]";
+	}
 	
+
 
 
 

@@ -2,6 +2,8 @@ package com.armadillo.api.clientservice.dto;
 
 
 
+import javax.persistence.Column;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -24,19 +26,23 @@ public class SystemCodeDto {
     @JsonProperty ("description")
     private String description;
     
+	@Column (name="system_log_program")
+    private String systemLogProgram;
+	
 
 
-
-	public SystemCodeDto(Integer systemCodeId, String codeType, String codeValue, String description) {
+	public SystemCodeDto(Integer systemCodeId, String codeType, String codeValue, String description, String systemLogProgram) {
 		this.systemCodeId = systemCodeId;
 		this.codeType = codeType;
 		this.codeValue = codeValue;
 		this.description = description;			
+		this.systemLogProgram = systemLogProgram;
 	}
-	public SystemCodeDto(String codeType, String codeValue, String description) {
+	public SystemCodeDto(String codeType, String codeValue, String description, String systemLogProgram) {
 		this.codeType = codeType;
 		this.codeValue = codeValue;
-		this.description = description;			
+		this.description = description;
+		this.systemLogProgram = systemLogProgram;		
 	}
 	public SystemCodeDto() {
 	}
@@ -69,18 +75,23 @@ public class SystemCodeDto {
 	}	
 	
 	
-	@Override
-	public String toString() {
-		return "SystemCodeDto [systemCodeId=" + systemCodeId + ", codeType=" + codeType + ", codeValue=" + codeValue
-				 + ", description=" + description
-				+ "]";
+	public String getSystemLogProgram() {
+		return systemLogProgram;
+	}
+	public void setSystemLogProgram(String systemLogProgram) {
+		this.systemLogProgram = systemLogProgram;
 	}
 	
 	
 	
-
 	
-
+	@Override
+	public String toString() {
+		return "SystemCodeDto [systemCodeId=" + systemCodeId + ", codeType=" + codeType + ", codeValue=" + codeValue
+				+ ", description=" + description + ", systemLogProgram=" + systemLogProgram + "]";
+	}
+	
+	
 
 
 	

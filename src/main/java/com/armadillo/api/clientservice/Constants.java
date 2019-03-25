@@ -24,6 +24,10 @@ public class Constants {
 	public static final String ERROR_MESSAGE_CODE_003 = "003";
 	public static final String ERROR_MESSAGE_TEXT_003 = "ID ALREADY EXISTS:  ";
 	public static final String ERROR_MESSAGE_TYPE_003 = "ERROR";	
+
+	public static final String ERROR_MESSAGE_CODE_004 = "004";
+	public static final String ERROR_MESSAGE_TEXT_004 = "RECORD ALREADY EXISTS WITH KEY:  ";
+	public static final String ERROR_MESSAGE_TYPE_004 = "ERROR";
 	
 	
 	//INFORMATION MESSAGES

@@ -119,7 +119,8 @@ public class SystemCodeService {
 				systemCode.getSystemCodeId(),
 				systemCode.getCodeType(),
 				systemCode.getCodeValue(),
-				systemCode.getDescription()
+				systemCode.getDescription(),
+				systemCode.getSystemLogProgram()
 				);
 
 		return dto;
