@@ -121,7 +121,9 @@ public class Account implements Serializable {
 	@Column(name = "invoice_method")
 	private String invoiceMethod;
 
-
+	@Column(name = "accounttype")
+	private String accountType;
+	
 
 
 	public Account(
@@ -154,7 +156,8 @@ public class Account implements Serializable {
 			String goodCustomer,
 			BigDecimal internationalDiscountpercent,
 			BigDecimal companieshouseDiscountpercent,
-			String invoiceMethod
+			String invoiceMethod,
+			String accountType
 			) {
 		this.partner=partner;
 		this.salesId=salesId;
@@ -186,6 +189,7 @@ public class Account implements Serializable {
 		this.internationalDiscountpercent=internationalDiscountpercent;
 		this.companieshouseDiscountpercent=companieshouseDiscountpercent;
 		this.invoiceMethod=invoiceMethod;
+		this.accountType=accountType;		
 	}
 	public Account(
 			String account,
@@ -218,7 +222,8 @@ public class Account implements Serializable {
 			String goodCustomer,
 			BigDecimal internationalDiscountpercent,
 			BigDecimal companieshouseDiscountpercent,
-			String invoiceMethod
+			String invoiceMethod,
+			String accountType
 			) {
 		this.account=account;		
 		this.partner=partner;
@@ -250,7 +255,8 @@ public class Account implements Serializable {
 		this.goodCustomer=goodCustomer;
 		this.internationalDiscountpercent=internationalDiscountpercent;
 		this.companieshouseDiscountpercent=companieshouseDiscountpercent;
-		this.invoiceMethod=invoiceMethod;		
+		this.invoiceMethod=invoiceMethod;
+		this.accountType=accountType;				
 	}
 	public Account() {
 	}
@@ -442,11 +448,21 @@ public class Account implements Serializable {
 	public void setInvoiceMethod(String invoiceMethod) {
 		this.invoiceMethod = invoiceMethod;
 	}
+		
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((account == null) ? 0 : account.hashCode());
+		result = prime * result + ((accountType == null) ? 0 : accountType.hashCode());
 		result = prime * result + ((billingAddr1 == null) ? 0 : billingAddr1.hashCode());
 		result = prime * result + ((billingAddr2 == null) ? 0 : billingAddr2.hashCode());
 		result = prime * result + ((billingCompany == null) ? 0 : billingCompany.hashCode());
@@ -481,6 +497,8 @@ public class Account implements Serializable {
 		result = prime * result + ((vatNumber == null) ? 0 : vatNumber.hashCode());
 		return result;
 	}
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -494,6 +512,11 @@ public class Account implements Serializable {
 			if (other.account != null)
 				return false;
 		} else if (!account.equals(other.account))
+			return false;
+		if (accountType == null) {
+			if (other.accountType != null)
+				return false;
+		} else if (!accountType.equals(other.accountType))
 			return false;
 		if (billingAddr1 == null) {
 			if (other.billingAddr1 != null)
@@ -662,9 +685,9 @@ public class Account implements Serializable {
 				+ invoicePeriod + ", paymentType=" + paymentType + ", vatNumber=" + vatNumber + ", vatExempt="
 				+ vatExempt + ", priceBand=" + priceBand + ", goodCustomer=" + goodCustomer
 				+ ", internationalDiscountpercent=" + internationalDiscountpercent + ", companieshouseDiscountpercent="
-				+ companieshouseDiscountpercent + ", invoiceMethod=" + invoiceMethod + "]";
+				+ companieshouseDiscountpercent + ", invoiceMethod=" + invoiceMethod + ", accountType=" + accountType
+				+ "]";
 	}
-	
 	
 
 

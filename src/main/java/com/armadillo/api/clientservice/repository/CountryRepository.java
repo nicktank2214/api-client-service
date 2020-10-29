@@ -4,7 +4,7 @@ package com.armadillo.api.clientservice.repository;
 
 import java.util.List;
 
-
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -31,19 +31,21 @@ extends CrudRepository<Country,Integer> {
 	//<GET>http://localhost:8080/country/1
 	
 	//standard find ALL
-	//<GET>http://localhost:8080/country
+	List<Country> findAll(Sort sort);	
 
 	//standard find by name
 	Country findByCountryCode(String countryCode);
 	
-	//standard find by name
-	List<Country> findByCountryName(String searchTerm);	
-	
-	List<Country> findByCountryNameLike(String searchTerm);
 
-	List<Country> getByCountryNameContaining(String searchTerm);
+	List<Country> findByLanguageOrderByCountryNameAsc(String searchTerm);	
+	
+	List<Country> findByCountryNameOrderByCountryNameAsc(String searchTerm);	
+	
+	List<Country> findByCountryNameLikeOrderByCountryNameAsc(String searchTerm);
+
+	List<Country> getByCountryNameContainingOrderByCountryNameAsc(String searchTerm);
     
-	List<Country> readByCountryNameStartingWith(String searchTerm);
+	List<Country> readByCountryNameStartingWithOrderByCountryNameAsc(String searchTerm);
     
     
 	

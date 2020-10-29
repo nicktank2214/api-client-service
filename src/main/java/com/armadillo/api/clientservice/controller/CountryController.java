@@ -12,7 +12,6 @@ import org.springframework.http.*;
 
 import org.springframework.web.bind.annotation.*;
 
-
 import com.armadillo.api.clientservice.dto.CountryDto;
 import com.armadillo.api.clientservice.service.CountryService;
 import com.armadillo.api.exception.ExceptionResponse;
@@ -62,7 +61,7 @@ public class CountryController {
 	 * find country object 
 	 */
 	@RequestMapping(method = RequestMethod.GET, path = "/{id}")
-	//<GET>http://localhost:8080/countrytype/RM
+	//<GET>http://localhost:8080/country/GB
 	public CountryDto findCountryById(@PathVariable(value = "id") Integer id) throws ApplicationException {
 
 		log.info("["+this.getClass().getName()+"] "+new java.util.Date()+
@@ -77,7 +76,7 @@ public class CountryController {
 	 * find country object 
 	 */
 	@RequestMapping(method = RequestMethod.GET, path = "/findbycountrycode/{id}")
-	//<GET>http://localhost:8080/countrytype
+	//<GET>http://localhost:8080/country
 	public CountryDto findCountryByCountryCode(
 			@PathVariable(value = "id") String id 
 			) throws ApplicationException {
@@ -94,7 +93,7 @@ public class CountryController {
 	 * list countrys
 	 */   
 	@RequestMapping(method = RequestMethod.GET, path = "/list")    
-	//<GET>http://localhost:8080/countrytype/list 
+	//<GET>http://localhost:8080/country/list 
 	public List<CountryDto> findAllCountrys()  throws ApplicationException {
 
 		log.info("["+this.getClass().getName()+"] "+new java.util.Date()+
@@ -105,8 +104,22 @@ public class CountryController {
 	}   
 
 
+	/**
+	 */
+	@RequestMapping(method = RequestMethod.GET, path = "/findbylanguage")
+	//<GET>http://localhost:8080/country/findbylanguage?language=GB
+	public List<CountryDto> findCountryByLanguage(
+    		@RequestParam(value = "language") String language
+    		)	 throws ApplicationException {
 
+		log.info("["+this.getClass().getName()+"] "+new java.util.Date()+
+				" findCountryByLanguage - Parameters [language=" + language+ "]");
 
+		List<CountryDto> dtoList = countryService.findByLanguage(language);
+		return dtoList;
+	}
+
+	
 	/**
 	 * Exception handler if NoSuchElementException is thrown in this Controller
 	 */

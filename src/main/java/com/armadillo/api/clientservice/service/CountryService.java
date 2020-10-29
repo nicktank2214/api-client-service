@@ -8,11 +8,11 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.armadillo.api.clientservice.Constants;
-
 import com.armadillo.api.clientservice.domain.Country;
 import com.armadillo.api.clientservice.dto.CountryDto;
 import com.armadillo.api.clientservice.repository.CountryRepository;
@@ -79,13 +79,29 @@ public class CountryService {
 		return toDto(country);	
 	}
 	
-	
 
 	/**
 	 * 
 	 */   
+	public List<CountryDto> findByLanguage(
+			String language
+			)  throws ApplicationException {
+		Iterable<Country> listIterable = countryRepository.findByLanguageOrderByCountryNameAsc(language);
+		List<CountryDto> dtoList = 
+				StreamSupport.stream(listIterable.spliterator(), false)
+				.map((Country c) -> toDto(c))
+				.collect(Collectors.toList());  
+		return dtoList;
+	} 
+	
+	
+	/**
+	 * 
+	 */   
+	@SuppressWarnings("deprecation")
 	public List<CountryDto> getAllCountrys()  throws ApplicationException {
-		Iterable<Country> listIterable = countryRepository.findAll();
+		Sort sort = new Sort(new Sort.Order(Direction.ASC, "countryName"));
+		Iterable<Country> listIterable = countryRepository.findAll(sort);
 		List<CountryDto> dtoList = 
 				StreamSupport.stream(listIterable.spliterator(), false)
 				.map((Country c) -> toDto(c))

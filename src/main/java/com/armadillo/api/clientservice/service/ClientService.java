@@ -139,7 +139,8 @@ public class ClientService {
 				dto.getContact(),			
 				dto.getChMonthfeedue(),			
 				dto.getChPaid(),			
-				dto.getChUser()
+				dto.getChUser(),
+				dto.getClientType()
 				);
 		
 		validate(newClient);
@@ -225,7 +226,9 @@ public class ClientService {
 		if (dto.getChUser()!=null) {		
 			client.setChUser(dto.getChUser());
 		}		
-						
+		if (dto.getClientType()!=null) {		
+			client.setClientType(dto.getClientType());
+		}						
 			
 		validate(client);
 
@@ -262,6 +265,7 @@ public class ClientService {
 				client.getChMonthfeedue(),			
 				client.getChPaid(),			
 				client.getChUser(),
+				client.getClientType(),
 				""//action
 				);
 

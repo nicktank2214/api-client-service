@@ -155,27 +155,11 @@ public class AccountCode implements Serializable{
     public AccountCode(
     		String codeType, 
     		String codeValue,
-    		String createUserId,
-    		java.util.Date createDate,
-    		String createTime,
-    		java.util.Date systemLogDate,
-    		String systemLogAction,
-    		String systemLogProgram,
-    		String systemLogTime,
-    		String systemLogUserid,
     		String description,
     		String account
     		) {
         this.codeType = codeType;
         this.codeValue = codeValue;
-        this.createUserId = createUserId;
-        this.createDate = createDate;
-        this.createTime = createTime;
-        this.systemLogDate = systemLogDate;
-        this.systemLogAction = systemLogAction;
-        this.systemLogProgram = systemLogProgram;
-        this.systemLogTime = systemLogTime;
-        this.systemLogUserid = systemLogUserid;
         this.description = description;  
         this.account = account;         
     }

@@ -99,7 +99,8 @@ public class AccountService {
 				dto.getGoodCustomer(),
 				dto.getInternationalDiscountpercent(),
 				dto.getCompanieshouseDiscountpercent(),
-				dto.getInvoiceMethod()
+				dto.getInvoiceMethod(),
+				dto.getAccountType()
 				);
 
 		validate(newAccount);
@@ -206,7 +207,10 @@ public class AccountService {
 		if (dto.getInvoiceMethod()!=null) {		
 			account.setInvoiceMethod(dto.getInvoiceMethod());
 		}					
-			
+		if (dto.getAccountType()!=null) {		
+			account.setAccountType(dto.getAccountType());
+		}	
+		
 		validate(account);
 
 		return toDto(accountRepository.save(account));
@@ -293,6 +297,7 @@ public class AccountService {
 				account.getInternationalDiscountpercent(),
 				account.getCompanieshouseDiscountpercent(),
 				account.getInvoiceMethod(),
+				account.getAccountType(),
 				""//action
 				);
 
